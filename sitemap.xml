@@ -26,4 +26,5 @@
 
   <url><loc>https://flyhorizons.online/about.html</loc><lastmod>2026-10-19</lastmod></url>
   <url><loc>https://flyhorizons.online/contact.html</loc><lastmod>2026-10-19</lastmod></url>
+  <url><loc>https://flyhorizons.online/promos.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
 </urlset>
