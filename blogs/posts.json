@@ -26,5 +26,19 @@
     "description": "Find affordable luxury hotels for short weekend getaways with this guide covering categories, booking tips, mistakes to avoid, and trusted travel partners.",
     "file": "affordable-luxury-hotels-for-short-weekend-getaways.html",
     "date": "2026-10-08"
+  },
+  {
+    "keyword": "premium ground transportation for corporate executive travel",
+    "title": "Premium Ground Transportation for Corporate Executive Travel",
+    "description": "How to choose premium ground transportation for corporate executive travel, with a decision framework, scenarios, mistakes to avoid, and trusted booking.",
+    "file": "premium-ground-transportation-for-corporate-executive-travel.html",
+    "date": "2026-10-27",
+    "archetype": "authority_guide",
+    "archetype_confidence": 0.62,
+    "risk_level": "low",
+    "requires_human_review": false,
+    "google_quality_passed": true,
+    "eeat_score": 100,
+    "seo_aeo_score": 8.57
   }
 ]
