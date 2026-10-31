@@ -40,5 +40,19 @@
     "google_quality_passed": true,
     "eeat_score": 100,
     "seo_aeo_score": 8.57
+  },
+  {
+    "keyword": "Planning a trip complete guide: flights, hotels and premium ground travel",
+    "title": "Trip Planning Guide: Flights, Hotels & Premium Ground Travel",
+    "description": "Planning a trip complete guide: flights, hotels and premium ground travel for US travelers covering bookings, timing, and premium ground transfers.",
+    "file": "planning-a-trip-complete-guide-flights-hotels-and-premium-ground-travel.html",
+    "date": "2026-10-31",
+    "archetype": "authority_guide",
+    "archetype_confidence": 0.62,
+    "risk_level": "low",
+    "requires_human_review": false,
+    "google_quality_passed": true,
+    "eeat_score": 100,
+    "seo_aeo_score": 9.7
   }
 ]
