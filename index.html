@@ -430,6 +430,187 @@ body{background:#fff;color:#0f172a}
 </nav>
 <a href="#deals" class="nav-cta">See Deals</a>
 </div></header><main id="main">
+<!-- FlyHorizons "Book a flight" search (added Nov 2026). Unbranded: results open via FlyHorizons partner tracking. -->
+<style id="fh-book-css">
+#book-flight{background:var(--pearlw,#f7faf9);padding:56px 16px 48px;font-family:var(--bf,system-ui,sans-serif);color:var(--ink,#1a1a1a)}
+#book-flight .fb-in{max-width:1180px;margin:0 auto}
+#book-flight .fb-eyebrow{text-align:center;letter-spacing:.32em;font-size:13px;font-weight:700;color:var(--inks,#555);margin:0 0 10px}
+#book-flight h2{font-family:var(--df,system-ui,sans-serif);text-align:center;font-size:clamp(34px,5vw,56px);line-height:1.05;margin:0 0 14px;color:var(--mid,#064e3b)}
+#book-flight .fb-lead{text-align:center;max-width:640px;margin:0 auto 32px;font-size:18px;line-height:1.55;color:var(--inks,#555)}
+#book-flight .fb-card{background:#fff;border:1px solid var(--line,#e5e0d8);border-radius:var(--rc,24px);box-shadow:0 18px 50px rgba(6,78,59,.08);overflow:hidden}
+#book-flight .fb-tabs{display:flex;gap:26px;padding:0 28px;border-bottom:1px solid var(--linel,#eeebe5)}
+#book-flight .fb-tab{background:none;border:0;border-bottom:3px solid transparent;padding:18px 2px 14px;font:inherit;font-size:17px;color:var(--inks,#555);cursor:pointer}
+#book-flight .fb-tab[aria-selected=true]{color:var(--mid,#064e3b);font-weight:700;border-bottom-color:var(--gold,#f97316)}
+#book-flight form{padding:24px 28px 26px}
+#book-flight .fb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+#book-flight .fb-f{position:relative;border:1px solid var(--line,#e5e0d8);border-radius:var(--rs,14px);padding:10px 14px;background:#fff;min-height:68px;display:flex;flex-direction:column;justify-content:center}
+#book-flight .fb-f:focus-within{border-color:var(--teal,#059669);box-shadow:0 0 0 3px var(--tealg,rgba(5,150,105,.1))}
+#book-flight .fb-f label{font-size:13px;color:var(--inks,#555);margin-bottom:2px}
+#book-flight .fb-f input,#book-flight .fb-f select{border:0;outline:0;background:transparent;font:inherit;font-size:18px;font-weight:600;color:var(--ink,#1a1a1a);width:100%;padding:0}
+#book-flight .fb-dates{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#book-flight .fb-dates.one{grid-template-columns:1fr}
+#book-flight .fb-dates.one .fb-ret{display:none}
+#book-flight .fb-swap{position:absolute;right:-14px;top:50%;transform:translateY(-50%);z-index:2;width:28px;height:28px;border-radius:50%;border:1px solid var(--line,#e5e0d8);background:#fff;cursor:pointer;font-size:14px;line-height:1}
+#book-flight .fb-btn{border:0;border-radius:var(--rs,14px);background:var(--gold,#f97316);color:#fff;font:inherit;font-size:19px;font-weight:700;cursor:pointer;min-height:68px;transition:background .2s}
+#book-flight .fb-btn:hover{background:var(--goldd,#ea580c)}
+#book-flight .fb-legs{display:none;margin-top:16px;gap:12px;flex-direction:column}
+#book-flight.mc .fb-legs{display:flex}
+#book-flight.mc .fb-dates .fb-ret{display:none}
+#book-flight.mc .fb-dates{grid-template-columns:1fr}
+#book-flight .fb-leg{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:12px;align-items:center}
+#book-flight .fb-leg .fb-f{min-height:58px}
+#book-flight .fb-x,#book-flight .fb-add{background:none;border:1px dashed var(--line,#e5e0d8);border-radius:10px;padding:8px 12px;cursor:pointer;font:inherit;color:var(--mid,#064e3b)}
+#book-flight .fb-add{align-self:flex-start}
+#book-flight .fb-ac{position:absolute;left:0;right:0;top:100%;margin-top:4px;background:#fff;border:1px solid var(--line,#e5e0d8);border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.1);list-style:none;padding:6px;z-index:20;max-height:260px;overflow:auto;display:none}
+#book-flight .fb-ac li{padding:8px 10px;border-radius:8px;cursor:pointer;font-size:15px;display:flex;justify-content:space-between;gap:10px}
+#book-flight .fb-ac li b{color:var(--mid,#064e3b)}
+#book-flight .fb-ac li:hover,#book-flight .fb-ac li[aria-selected=true]{background:var(--emsoft,#ecfdf5)}
+#book-flight .fb-err{color:#b91c1c;font-size:14px;min-height:20px;margin:12px 0 0}
+#book-flight .fb-quote{margin:4px 0 0;font-size:15px;color:var(--inks,#555)}
+#book-flight .fb-quote a{color:var(--mid,#064e3b);font-weight:700;text-decoration:underline}
+#book-flight .fb-help{margin:10px 0 0;font-size:13px;line-height:1.6;color:var(--inks,#555)}
+#book-flight .fb-help a{color:inherit;text-decoration:underline}
+@media(max-width:900px){#book-flight .fb-grid{grid-template-columns:1fr 1fr}#book-flight .fb-leg{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){#book-flight{padding:40px 16px 32px}#book-flight .fb-grid{grid-template-columns:1fr}#book-flight .fb-swap{right:12px;top:auto;bottom:-14px;transform:none}#book-flight .fb-tabs{padding:0 16px;gap:18px}#book-flight form{padding:18px 16px}#book-flight .fb-leg{grid-template-columns:1fr}}
+</style>
+
+<section id="book-flight" aria-labelledby="book-flight-h">
+<div class="fb-in">
+<p class="fb-eyebrow">BOOK</p>
+<h2 id="book-flight-h">Book a flight</h2>
+<p class="fb-lead">Search fares from hundreds of airlines and booking sites in one go, then add your resort stay and private ride below.</p>
+
+<div class="fb-card">
+<div class="fb-tabs" role="tablist" aria-label="Trip type">
+<button type="button" class="fb-tab" role="tab" aria-selected="true" data-trip="rt">Return</button>
+<button type="button" class="fb-tab" role="tab" aria-selected="false" data-trip="ow">One way</button>
+<button type="button" class="fb-tab" role="tab" aria-selected="false" data-trip="mc">Multicity</button>
+</div>
+
+<form id="fb-form" novalidate>
+<div class="fb-grid">
+<div class="fb-f fb-air"><label for="fb-from">Departure Airport</label><input id="fb-from" data-iata="BOS" value="Boston (BOS)" autocomplete="off" placeholder="City or airport" aria-describedby="fb-help"><ul class="fb-ac" role="listbox"></ul><button type="button" class="fb-swap" aria-label="Swap departure and arrival airports" title="Swap airports">⇄</button></div>
+<div class="fb-f fb-air"><label for="fb-to">Arrival Airport</label><input id="fb-to" autocomplete="off" placeholder="City or airport" aria-describedby="fb-help"><ul class="fb-ac" role="listbox"></ul></div>
+<div class="fb-dates" id="fb-dates">
+<div class="fb-f"><label for="fb-dep">Departing</label><input type="date" id="fb-dep"></div>
+<div class="fb-f fb-ret"><label for="fb-ret">Returning</label><input type="date" id="fb-ret"></div>
+</div>
+<div class="fb-f"><label for="fb-pax">Passengers</label><select id="fb-pax"><option value="1">1 Adult</option><option value="2">2 Adults</option><option value="3">3 Adults</option><option value="4">4 Adults</option><option value="5">5 Adults</option><option value="6">6 Adults</option></select></div>
+<div class="fb-f"><label for="fb-class">Class</label><select id="fb-class"><option value="">Economy Class</option><option value="c">Business Class</option></select></div>
+<button type="submit" class="fb-btn">Search flights</button>
+</div>
+
+<div class="fb-legs" id="fb-legs" aria-label="Additional flights"></div>
+<p class="fb-err" id="fb-err" role="alert"></p>
+<p class="fb-quote">Business or First class? <a href="https://click.linksynergy.com/fs-bin/click?id=Lg3HrbhoGSk&amp;offerid=2138138.3&amp;type=3&amp;subid=0" target="_blank" rel="sponsored noopener nofollow">Get a private fare quote →</a><img border="0" width="1" height="1" alt="" src="https://ad.linksynergy.com/fs-bin/show?id=Lg3HrbhoGSk&amp;bids=2138138.3&amp;type=3&amp;subid=0" style="position:absolute;width:1px;height:1px;opacity:0"></p>
+<p class="fb-help" id="fb-help">Type a city or a 3-letter airport code (e.g. Boston or BOS), pick your dates, then press Search flights. Live fares open in a new tab, and you book directly with the airline or agency you choose. FlyHorizons may earn a commission at no extra cost to you. <a href="/affiliate-disclosure.html">Affiliate disclosure</a> · <a href="#faq">Travel FAQ</a></p>
+</form>
+</div>
+</div>
+</section>
+
+<script id="fh-book-js">
+(function(){
+  var MARKER='794025', root=document.getElementById('book-flight'); if(!root) return;
+  var form=document.getElementById('fb-form'), err=document.getElementById('fb-err'), legs=document.getElementById('fb-legs'), dates=document.getElementById('fb-dates');
+  var dep=document.getElementById('fb-dep'), ret=document.getElementById('fb-ret'), trip='rt';
+  function iso(d){return d.toISOString().slice(0,10);}
+  var t=new Date(); t.setDate(t.getDate()+1); dep.min=iso(t); ret.min=iso(t);
+  dep.addEventListener('change',function(){ret.min=dep.value||ret.min; if(ret.value&&ret.value<dep.value) ret.value='';});
+
+  // Trip type tabs
+  root.querySelectorAll('.fb-tab').forEach(function(b){b.addEventListener('click',function(){
+    root.querySelectorAll('.fb-tab').forEach(function(x){x.setAttribute('aria-selected',x===b);});
+    trip=b.dataset.trip; dates.classList.toggle('one',trip!=='rt'); root.classList.toggle('mc',trip==='mc');
+    if(trip==='mc'&&!legs.querySelector('.fb-leg')){addLeg();}
+    err.textContent='';
+  });});
+
+  // Multicity legs
+  var legN=0;
+  function addLeg(){
+    if(legs.querySelectorAll('.fb-leg').length>=4) return; legN++;
+    var d=document.createElement('div'); d.className='fb-leg';
+    d.innerHTML='<div class="fb-f fb-air"><label for="lf'+legN+'">From</label><input id="lf'+legN+'" autocomplete="off" placeholder="City or airport"><ul class="fb-ac" role="listbox"></ul></div>'+
+      '<div class="fb-f fb-air"><label for="lt'+legN+'">To</label><input id="lt'+legN+'" autocomplete="off" placeholder="City or airport"><ul class="fb-ac" role="listbox"></ul></div>'+
+      '<div class="fb-f"><label for="ld'+legN+'">Date</label><input type="date" id="ld'+legN+'" min="'+dep.min+'"></div>'+
+      '<button type="button" class="fb-x" aria-label="Remove this flight">✕</button>';
+    var add=legs.querySelector('.fb-add'); legs.insertBefore(d,add);
+    var prevTo=legs.querySelectorAll('.fb-leg').length>1?legs.querySelectorAll('.fb-leg')[legs.querySelectorAll('.fb-leg').length-2].querySelectorAll('input')[1]:document.getElementById('fb-to');
+    var nf=d.querySelector('input'); if(prevTo.dataset.iata){nf.value=prevTo.value; nf.dataset.iata=prevTo.dataset.iata;}
+    d.querySelector('.fb-x').addEventListener('click',function(){d.remove();});
+    d.querySelectorAll('.fb-air input').forEach(bindAC);
+  }
+  var addBtn=document.createElement('button'); addBtn.type='button'; addBtn.className='fb-add'; addBtn.textContent='+ Add another flight'; addBtn.addEventListener('click',addLeg); legs.appendChild(addBtn);
+
+  // Airport autocomplete
+  function codeOf(inp){
+    if(inp.dataset.iata) return inp.dataset.iata;
+    var v=(inp.value||'').trim(); if(/^[A-Za-z]{3}$/.test(v)) return v.toUpperCase();
+    return (v.match(/\(([A-Z]{3})\)\s*$/)||[])[1]||'';
+  }
+  function bindAC(inp){
+    var list=inp.parentNode.querySelector('.fb-ac'), timer, items=[], idx=-1;
+    function close(){list.style.display='none'; idx=-1;}
+    function pick(p){inp.value=p.name+' ('+p.code+')'; inp.dataset.iata=p.code; close();}
+    function render(){list.innerHTML=''; items.forEach(function(p,i){var li=document.createElement('li'); li.setAttribute('role','option'); li.setAttribute('aria-selected',i===idx);
+      var sp=document.createElement('span'), bb=document.createElement('b'); sp.textContent=p.name+(p.country?', '+p.country:''); bb.textContent=p.code; li.appendChild(sp); li.appendChild(bb); li.addEventListener('mousedown',function(e){e.preventDefault();pick(p);}); list.appendChild(li);});
+      list.style.display=items.length?'block':'none';}
+    inp.addEventListener('input',function(){
+      delete inp.dataset.iata; clearTimeout(timer); var q=inp.value.trim(); if(q.length<2){close();return;}
+      timer=setTimeout(function(){
+        fetch('https://autocomplete.travelpayouts.com/places2?locale=en&types[]=city&types[]=airport&term='+encodeURIComponent(q))
+          .then(function(r){return r.json();}).then(function(d){
+            items=(d||[]).slice(0,7).map(function(p){return {code:p.code,name:p.type==='airport'?p.name:(p.name+(p.type==='city'?' (all airports)':'')),country:p.country_name};});
+            items=items.map(function(p){p.name=p.name.replace(' (all airports)','');return p;}); idx=-1; render();
+          }).catch(function(){close();});
+      },220);
+    });
+    inp.addEventListener('keydown',function(e){
+      if(list.style.display!=='block') return;
+      if(e.key==='ArrowDown'){idx=Math.min(idx+1,items.length-1);render();e.preventDefault();}
+      else if(e.key==='ArrowUp'){idx=Math.max(idx-1,0);render();e.preventDefault();}
+      else if(e.key==='Enter'&&idx>=0){pick(items[idx]);e.preventDefault();}
+      else if(e.key==='Escape'){close();}
+    });
+    inp.addEventListener('blur',function(){setTimeout(close,150);});
+  }
+  root.querySelectorAll('.fb-air input').forEach(bindAC);
+
+  root.querySelector('.fb-swap').addEventListener('click',function(){
+    var a=document.getElementById('fb-from'), b=document.getElementById('fb-to'), v=a.value, c=a.dataset.iata;
+    a.value=b.value; if(b.dataset.iata) a.dataset.iata=b.dataset.iata; else delete a.dataset.iata;
+    b.value=v; if(c) b.dataset.iata=c; else delete b.dataset.iata;
+  });
+
+  function ddmm(v){var p=v.split('-'); return p[2]+p[1];}
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault(); err.textContent='';
+    var from=codeOf(document.getElementById('fb-from')), to=codeOf(document.getElementById('fb-to'));
+    var pax=document.getElementById('fb-pax').value, cls=document.getElementById('fb-class').value, path;
+    if(!from||!to){err.textContent='Please choose a departure and an arrival airport from the list (or type a 3-letter code).';return;}
+    if(from===to){err.textContent='Departure and arrival airports must be different.';return;}
+    if(!dep.value){err.textContent='Please pick a departing date.';return;}
+    if(trip==='rt'){
+      if(!ret.value){err.textContent='Please pick a returning date, or switch to One way.';return;}
+      path=from+ddmm(dep.value)+to+ddmm(ret.value);
+    } else if(trip==='ow'){
+      path=from+ddmm(dep.value)+to;
+    } else {
+      var segs=[from+ddmm(dep.value)+to], ok=true, last=dep.value;
+      legs.querySelectorAll('.fb-leg').forEach(function(l){
+        var ins=l.querySelectorAll('input'), f=codeOf(ins[0]), tt=codeOf(ins[1]), d=ins[2].value;
+        if(!f||!tt||!d||d<last){ok=false;return;} last=d; segs.push(f+ddmm(d)+tt);
+      });
+      if(!ok){err.textContent='Please complete every flight with airports and a date (each date on or after the one before).';return;}
+      path=segs.join('-');
+    }
+    var url='https://www.aviasales.com/search/'+path+cls+pax+'?marker='+MARKER+'.flyhorizons_book&currency=usd&locale=en';
+    window.open(url,'_blank','noopener');
+  });
+})();
+</script>
 
 <section class="hero" aria-label="Hero">
 <div class="hero-bg" aria-hidden="true"></div>
